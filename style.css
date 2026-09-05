@@ -1,1 +1,698 @@
+/* ==========================================================================
+   MASTER STYLE - DIGITAL WEDDING INVITATION (ELEGANT EARTHY GOLD THEME)
+   ========================================================================== */
 
+/* 1. VARIABLE & RESET GLOBAL */
+:root {
+  --primary-color: #B8975A;       /* Gold/Bronze Elegan */
+  --primary-hover: #98783C;
+  --dark-color: #2C2A29;          /* Hitam/Cokelat Gelap Warm */
+  --light-bg: #FAF8F5;            /* Cream Lembut */
+  --card-bg: #FFFFFF;
+  --border-color: #E2D9CC;
+  --text-color: #4A4A4A;
+  --text-muted: #7A7A7A;
+  
+  --font-heading: 'Cormorant Garamond', 'Playfair Display', serif;
+  --font-body: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-color);
+  background-color: var(--light-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+section {
+  padding: 80px 20px;
+  position: relative;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* 2. TYPOGRAPHY & BUTTONS */
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--dark-color);
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 40px auto;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: #ffffff;
+  border: none;
+  padding: 12px 30px;
+  font-size: 0.95rem;
+  font-family: var(--font-body);
+  font-weight: 500;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(184, 151, 90, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184, 151, 90, 0.4);
+}
+
+.btn-primary.full-width {
+  width: 100%;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 1.5px solid var(--primary-color);
+  padding: 8px 20px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+/* 3. COVER SCREEN OVERLAY */
+.cover-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+              url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 9999;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+  padding: 20px;
+}
+
+.cover-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.cover-content {
+  max-width: 500px;
+}
+
+.sub-title {
+  letter-spacing: 4px;
+  font-size: 0.85rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.couple-name-cover {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.guest-to {
+  font-size: 0.85rem;
+  color: #dddddd;
+  margin-bottom: 10px;
+}
+
+.guest-box {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 12px 25px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.guest-name {
+  font-size: 1.3rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.cover-note {
+  font-size: 0.75rem;
+  color: #bbbbbb;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+/* 4. MUSIC TOGGLE FLOATING BUTTON */
+.music-toggle {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary-color);
+  color: #ffffff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.music-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* 5. HERO SECTION */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+              url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  color: #ffffff;
+  padding: 20px;
+}
+
+.couple-name {
+  font-family: var(--font-heading);
+  font-size: 3.8rem;
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.event-date {
+  font-size: 1.1rem;
+  margin-bottom: 35px;
+  letter-spacing: 1px;
+}
+
+/* Countdown Container */
+.countdown-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.time-box {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 15px;
+  border-radius: 12px;
+  min-width: 75px;
+}
+
+.time-box span {
+  font-size: 2rem;
+  font-weight: 600;
+  display: block;
+  font-family: var(--font-heading);
+}
+
+.time-box p {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* 6. QUOTE SECTION */
+.quote-section {
+  text-align: center;
+  background-color: var(--card-bg);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.quote-icon {
+  font-size: 2rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  opacity: 0.5;
+}
+
+.quote-text {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-style: italic;
+  max-width: 700px;
+  margin: 0 auto 15px auto;
+  color: var(--dark-color);
+}
+
+.quote-author {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  letter-spacing: 1px;
+}
+
+/* 7. COUPLE SECTION */
+.couple-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.couple-card {
+  text-align: center;
+  max-width: 320px;
+}
+
+.photo-frame {
+  width: 200px;
+  height: 250px;
+  margin: 0 auto 20px auto;
+  border-radius: 100px 100px 10px 10px;
+  overflow: hidden;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.couple-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--dark-color);
+  margin-bottom: 5px;
+}
+
+.parents {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 15px;
+}
+
+.btn-instagram {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.couple-divider {
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  color: var(--primary-color);
+}
+
+/* 8. EVENT SECTION */
+.event-section {
+  background-color: var(--card-bg);
+}
+
+.event-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.event-card {
+  background: var(--light-bg);
+  padding: 40px 30px;
+  border-radius: 16px;
+  text-align: center;
+  width: 350px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: relative;
+}
+
+.event-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--primary-color);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 20px auto;
+}
+
+.event-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--dark-color);
+  margin-bottom: 10px;
+}
+
+.event-time {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+.event-location {
+  font-size: 0.88rem;
+  color: var(--text-color);
+  margin-bottom: 25px;
+  line-height: 1.5;
+}
+
+/* 9. TIMELINE / LOVE STORY */
+.timeline {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: var(--border-color);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  margin-bottom: 30px;
+  position: relative;
+  width: 50%;
+  padding: 0 25px;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-date {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 5px;
+}
+
+.timeline-content {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.timeline-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  color: var(--dark-color);
+  margin-bottom: 8px;
+}
+
+.timeline-content p {
+  font-size: 0.85rem;
+  color: var(--text-color);
+}
+
+/* 10. GALLERY SECTION */
+.gallery-section {
+  background-color: var(--card-bg);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.gallery-item {
+  height: 250px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* 11. GIFT / AMPLOP DIGITAL SECTION */
+.gift-cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.bank-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  padding: 30px;
+  border-radius: 16px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.bank-logo {
+  height: 35px;
+  margin-bottom: 15px;
+  object-fit: contain;
+}
+
+.account-number {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  letter-spacing: 1px;
+}
+
+.account-name {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.btn-copy {
+  background: var(--light-bg);
+  color: var(--dark-color);
+  border: 1px solid var(--border-color);
+  padding: 8px 18px;
+  font-size: 0.85rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-copy:hover {
+  background: var(--primary-color);
+  color: #ffffff;
+}
+
+.copy-status {
+  display: block;
+  font-size: 0.75rem;
+  color: green;
+  margin-top: 8px;
+  min-height: 18px;
+}
+
+/* 12. RSVP & BUKU TAMU SECTION */
+.rsvp-section {
+  background-color: var(--card-bg);
+}
+
+#rsvp-form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: var(--dark-color);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: var(--light-bg);
+  font-family: inherit;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+#rsvp-status {
+  text-align: center;
+  margin-top: 15px;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Daftar Ucapan Tamu */
+#ucapan-container {
+  max-width: 600px;
+  margin: 50px auto 0 auto;
+  text-align: left;
+}
+
+#ucapan-container h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--dark-color);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+#ucapan-list {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* 13. FOOTER */
+footer {
+  background-color: var(--dark-color);
+  color: #ffffff;
+  text-align: center;
+  padding: 60px 20px 30px 20px;
+}
+
+.footer-thanks {
+  font-size: 0.9rem;
+  max-width: 600px;
+  margin: 0 auto 25px auto;
+  color: #cccccc;
+}
+
+.couple-name-footer {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  color: var(--primary-color);
+  margin-bottom: 20px;
+}
+
+.copyright {
+  font-size: 0.75rem;
+  color: #888888;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+}
+
+/* ==========================================================================
+   14. RESPONSIVE DESIGN (TAMPILAN MOBILE HP)
+   ========================================================================== */
+@media (max-width: 768px) {
+  .couple-name-cover, .couple-name {
+    font-size: 2.8rem;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 0;
+  }
+
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    left: 0;
+    text-align: left;
+  }
+
+  .couple-wrapper {
+    gap: 20px;
+  }
+
+  .couple-divider {
+    display: none;
+  }
+}
